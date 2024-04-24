@@ -14,40 +14,45 @@ public class RegistrationServiceRequest {
         return name;
     }
 
-    public void setName(String name) {
+    public RegistrationServiceRequest setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
+    public RegistrationServiceRequest setSurname(String surname) {
         this.surname = surname;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public RegistrationServiceRequest setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public RegistrationServiceRequest setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public LocalDate getDateOfRegistration() {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDate dateOfRegistration) {
+    public RegistrationServiceRequest setDateOfRegistration(LocalDate dateOfRegistration) {
         this.dateOfRegistration = dateOfRegistration;
+        return this;
     }
 
 }
