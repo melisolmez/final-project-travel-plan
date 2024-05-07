@@ -1,17 +1,17 @@
 package dev.melis.travelplanapp.support.result;
 
-public class CreationResult {
+public class CrudResult {
 
     private OperationResult result;
     private OperationFailureReason reason;
     private String message;
-    private CreationResult(){}
+    private CrudResult(){}
 
     public OperationResult getResult() {
         return result;
     }
 
-    public CreationResult setResult(OperationResult result) {
+    public CrudResult setResult(OperationResult result) {
         this.result = result;
         return this;
     }
@@ -20,7 +20,7 @@ public class CreationResult {
         return reason;
     }
 
-    public CreationResult setReason(OperationFailureReason reason) {
+    public CrudResult setReason(OperationFailureReason reason) {
         this.reason = reason;
         return this;
     }
@@ -29,31 +29,31 @@ public class CreationResult {
         return message;
     }
 
-    public CreationResult setMessage(String message) {
+    public CrudResult setMessage(String message) {
         this.message = message;
         return this;
     }
 
-    public static CreationResult success()
+    public static CrudResult success()
     {
-        return new CreationResult()
+        return new CrudResult()
                 .setResult(OperationResult.SUCCESS);
 
     }
 
-    public static CreationResult success(String message){
-        return new CreationResult()
+    public static CrudResult success(String message){
+        return new CrudResult()
                 .setResult(OperationResult.SUCCESS)
                 .setMessage(message);
     }
 
-    public static CreationResult failure(OperationFailureReason reason){
-        return new CreationResult()
+    public static CrudResult failure(OperationFailureReason reason){
+        return new CrudResult()
                 .setResult(OperationResult.FAILED)
                 .setReason(reason);
     }
-    public static CreationResult failure(OperationFailureReason reason, String message){
-        return new CreationResult()
+    public static CrudResult failure(OperationFailureReason reason, String message){
+        return new CrudResult()
                 .setResult(OperationResult.FAILED)
                 .setReason(reason)
                 .setMessage(message);
