@@ -1,11 +1,12 @@
 package dev.melis.travelplanapp;
 
 import dev.melis.travelplanapp.model.User;
+import dev.melis.travelplanapp.passwordencoder.UserPasswordEncoder;
 import dev.melis.travelplanapp.repository.UserRepository;
 import dev.melis.travelplanapp.service.registration.DefaultRegistrationService;
 import dev.melis.travelplanapp.service.registration.RegistrationService;
 import dev.melis.travelplanapp.service.registration.RegistrationServiceRequest;
-import dev.melis.travelplanapp.support.result.CreationResult;
+import dev.melis.travelplanapp.support.result.CrudResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,11 +23,12 @@ class TransplantableApplicationTests {
 
 	private RegistrationService registrationService;
 	private UserRepository userRepository;
+	private UserPasswordEncoder userPasswordEncoder;
 	@Test
 	@BeforeEach
 	public void setUp(){
 		userRepository= mock(UserRepository.class);
-        registrationService= new DefaultRegistrationService(userRepository);
+        registrationService= new DefaultRegistrationService(userRepository,userPasswordEncoder);
 	}
 
 	@Test
@@ -39,7 +41,7 @@ class TransplantableApplicationTests {
 		request.setDateOfRegistration(LocalDate.now());
 
 		when(userRepository.findByEmail("olmezmelis@gmail.com")).thenReturn(Optional.empty());
-		CreationResult result= registrationService.register(request);
+		CrudResult result= registrationService.register(request);
 		assertTrue(result.isSuccess());
 	}
 
@@ -53,7 +55,7 @@ class TransplantableApplicationTests {
 		request.setDateOfRegistration(LocalDate.now());
 
 		when(userRepository.findByEmail("olmezmelis@gmail.com")).thenReturn(Optional.of(new User()));
-		CreationResult result= registrationService.register(request);
+		CrudResult result= registrationService.register(request);
 		assertFalse(result.isSuccess());
 	}
 
