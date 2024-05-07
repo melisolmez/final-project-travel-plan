@@ -1,9 +1,9 @@
 package dev.melis.travelplanapp.service.registration;
 
-import dev.melis.travelplanapp.support.result.CreationResult;
+import dev.melis.travelplanapp.support.result.CrudResult;
 import org.springframework.validation.annotation.Validated;
 
 @Validated
 public interface RegistrationService {
-    CreationResult register(RegistrationServiceRequest registrationServiceRequest);
+    CrudResult register(RegistrationServiceRequest registrationServiceRequest);
 }
