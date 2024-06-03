@@ -1,4 +1,4 @@
-package dev.melis.travelplanapp.momgodbrepository;
+package dev.melis.travelplanapp.mongodbrepository;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
