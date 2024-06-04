@@ -1,6 +1,7 @@
 package dev.melis.travelplanapp.service.registration;
 
 import dev.melis.travelplanapp.model.User;
+import dev.melis.travelplanapp.model.UserRole;
 import dev.melis.travelplanapp.passwordencoder.UserPasswordEncoder;
 import dev.melis.travelplanapp.repository.UserRepository;
 import dev.melis.travelplanapp.support.result.CrudResult;
@@ -41,6 +42,7 @@ public class DefaultRegistrationService implements RegistrationService{
         user.setSurname(registrationServiceRequest.getSurname());
         user.setEmail(registrationServiceRequest.getEmail());
         user.setPassword(passwordHash);
+        user.setRole(UserRole.USER);
         user.setDate(LocalDate.now());
         userRepository.save(user);
         return CrudResult.success();

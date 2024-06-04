@@ -5,11 +5,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "citiesandplace")
-public class Cities {
+@Document(collection = "cityandplace")
+public class City {
     @Id
     private String id;
-    private String isim;
+    private String sehir;
     private String tanitim;
     private List<Place> yerler;
     public String getId() {
@@ -20,12 +20,12 @@ public class Cities {
         this.id = id;
     }
 
-    public String getIsim() {
-        return isim;
+    public String getSehir() {
+        return sehir;
     }
 
-    public void setIsim(String isim) {
-        this.isim = isim;
+    public void setSehir(String sehir) {
+        this.sehir = sehir;
     }
 
     public String getTanitim() {

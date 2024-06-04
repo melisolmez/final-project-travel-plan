@@ -26,8 +26,6 @@ public class DefaultTravelService implements TravelService {
                 plan.setTitle(request.getTitle());
                 plan.setCity(request.getCity());
                 plan.setDescription(request.getDescription());
-                plan.setDateOfStarting(request.getDateOfStarting());
-                plan.setDateOfFinishing(request.getDateOfFinishing());
                 plan.setUserId(request.getUserId());
                 travelRepository.save(plan);
                 return CrudResult.success();
@@ -70,12 +68,6 @@ public class DefaultTravelService implements TravelService {
         }
         if(!ObjectUtils.isEmpty(request.getDescription())){
             travelFromDb.setDescription(request.getDescription());
-        }
-        if(!ObjectUtils.isEmpty(request.getDateOfStarting())){
-            travelFromDb.setDateOfStarting(request.getDateOfStarting());
-        }
-        if(!ObjectUtils.isEmpty(request.getDateOfFinishing())) {
-            travelFromDb.setDateOfFinishing(request.getDateOfFinishing());
         }
     }
 

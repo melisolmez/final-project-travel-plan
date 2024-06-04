@@ -20,6 +20,15 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private LocalDate date;
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
     private UserRole role;
 
     public String getId() {

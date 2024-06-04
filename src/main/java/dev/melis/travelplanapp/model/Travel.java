@@ -11,10 +11,6 @@ public class Travel {
     private String travelId;
     private String title;
     private String city;
-    private LocalDate dateOfStarting;
-    private LocalDate dateOfFinishing;
-    private boolean isTravelCompleted;
-
     private String description;
     private String userId;
 
@@ -48,30 +44,6 @@ public class Travel {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public LocalDate getDateOfStarting() {
-        return dateOfStarting;
-    }
-
-    public void setDateOfStarting(LocalDate dateOfStarting) {
-        this.dateOfStarting = dateOfStarting;
-    }
-
-    public LocalDate getDateOfFinishing() {
-        return dateOfFinishing;
-    }
-
-    public void setDateOfFinishing(LocalDate dateOfFinishing) {
-        this.dateOfFinishing = dateOfFinishing;
-    }
-
-    public boolean isTravelCompleted() {
-        return isTravelCompleted;
-    }
-
-    public void setTravelCompleted(boolean travelCompleted) {
-        isTravelCompleted = travelCompleted;
     }
 
     public String getDescription() {

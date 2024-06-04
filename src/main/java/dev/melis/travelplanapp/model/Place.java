@@ -3,7 +3,7 @@ package dev.melis.travelplanapp.model;
 public class Place {
 
     private String isim;
-    private String tanitim;
+    private String aciklama;
     private String resim;
 
     public String getIsim() {
@@ -14,12 +14,12 @@ public class Place {
         this.isim = isim;
     }
 
-    public String getTanitim() {
-        return tanitim;
+    public String getAciklama() {
+        return aciklama;
     }
 
-    public void setTanitim(String tanitim) {
-        this.tanitim = tanitim;
+    public void setAciklama(String aciklama) {
+        this.aciklama = aciklama;
     }
 
     public String getResim() {
