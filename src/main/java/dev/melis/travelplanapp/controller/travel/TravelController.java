@@ -20,6 +20,11 @@ public class TravelController {
         this.travelService = travelService;
     }
 
+    @GetMapping("/travels/{travelId}/places")
+    ResponseEntity<?> getTravelPlanPlaces(@PathVariable String travelId){
+        return ResponseEntity.ok(travelService.getTravelPlanPlaces(travelId));
+    }
+
     @PostMapping("/travels")
     ResponseEntity<?> addTravelPlan(@RequestBody AddTravelPlanRequest request, UserSession session){
         CrudResult result = travelService.addTravelPlan(request.toServiceRequest(), session);
@@ -31,8 +36,18 @@ public class TravelController {
     }
 
     @PostMapping("/travels/{travelId}")
-    ResponseEntity<?> updateTravelPlan(@RequestBody AddTravelPlanRequest request, String travelId){
+    ResponseEntity<?> updateTravelPlan(@RequestBody AddTravelPlanRequest request,@PathVariable String travelId){
         UpdateResult result = travelService.updateTravelInformation(travelId,request.toServiceRequest());
+        if (result.isSuccess()){
+            return ResponseEntity.ok().build();
+        }else{
+            return BusinessResultHandler.handleFailureReason(result.getReason(),result.getMessage());
+        }
+    }
+
+    @PutMapping("/travels/{travelId}")
+    ResponseEntity<?> addPlaceToTravelPlan(@RequestBody AddPlaceToTravelRequest placeId, @PathVariable String travelId){
+        UpdateResult result = travelService.addPlaceToTravelPlan(placeId.placeId(), travelId);
         if (result.isSuccess()){
             return ResponseEntity.ok().build();
         }else{
@@ -53,6 +68,12 @@ public class TravelController {
     @DeleteMapping("/travels/{travelId}")
     ResponseEntity<?> deleteTravel(@PathVariable String travelId){
         travelService.deleteTravelPlan(travelId);
+        return ResponseEntity.status(204).build();
+    }
+
+    @DeleteMapping("/travels/{travelId}/{placeId}")
+    ResponseEntity<?> deleteTravel(@PathVariable String travelId, @PathVariable String placeId){
+        travelService.deletePlaceFromTravel(travelId,placeId);
         return ResponseEntity.status(204).build();
     }
 }

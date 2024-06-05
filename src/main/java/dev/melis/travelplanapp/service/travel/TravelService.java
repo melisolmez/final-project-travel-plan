@@ -1,6 +1,7 @@
 package dev.melis.travelplanapp.service.travel;
 
 import dev.melis.travelplanapp.config.UserSession;
+import dev.melis.travelplanapp.model.Place;
 import dev.melis.travelplanapp.model.Travel;
 import dev.melis.travelplanapp.support.result.CrudResult;
 import dev.melis.travelplanapp.support.result.UpdateResult;
@@ -22,4 +23,9 @@ public interface TravelService {
     void deleteTravelPlan(String travelId);
 
 
+    UpdateResult addPlaceToTravelPlan(String placeId, String travelId);
+
+    void deletePlaceFromTravel(String travelId, String placeId);
+
+    List<Place> getTravelPlanPlaces(String travelId);
 }

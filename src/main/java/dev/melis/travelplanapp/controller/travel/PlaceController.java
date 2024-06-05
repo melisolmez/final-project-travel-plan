@@ -19,10 +19,19 @@ public class PlaceController {
         this.placeService = placeService;
     }
 
+    @GetMapping("/places")
+    public List<?> getPlaces(){
+        return placeService.getPlaces();
+    }
 
     @GetMapping("/places/{cityName}")
     public List<?> getPlacesByCityName(@PathVariable String cityName){
         return placeService.getPlacesByCityName(cityName);
+    }
+
+    @PutMapping("/places")
+    public ResponseEntity<?> getPlace(@RequestBody GetPlaceRequest request){
+        return ResponseEntity.ok(placeService.getPlaceById(request.placeId()));
     }
 
     @PostMapping(value = "/places", produces = MediaType.APPLICATION_JSON_VALUE)

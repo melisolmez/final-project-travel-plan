@@ -36,12 +36,12 @@ public class SavePlaceRequest {
         return this;
     }
 
-    public MultipartFile getPlaceImage() {
+    public MultipartFile getResim() {
         return resim;
     }
 
-    public SavePlaceRequest setPlaceImage(MultipartFile placeImage) {
-        this.resim = placeImage;
+    public SavePlaceRequest setResim(MultipartFile resim) {
+        this.resim = resim;
         return this;
     }
 }

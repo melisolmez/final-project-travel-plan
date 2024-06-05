@@ -33,7 +33,7 @@ public class DefaultPlaceService implements PlaceService {
                 .setSehir(request.getSehir())
                 .setIsim(request.getIsim())
                 .setAciklama(request.getAciklama())
-                .setResim(request.getPlaceImage().getBytes());
+                .setResim(request.getResim().getBytes());
 
         placeRepository.save(place);
     }
@@ -41,5 +41,10 @@ public class DefaultPlaceService implements PlaceService {
     @Override
     public void deleteById(String placeId) {
         placeRepository.deleteById(placeId);
+    }
+
+    @Override
+    public List<Place> getPlaces() {
+        return placeRepository.findAll();
     }
 }

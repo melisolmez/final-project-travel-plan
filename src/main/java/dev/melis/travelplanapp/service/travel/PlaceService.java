@@ -16,4 +16,6 @@ public interface PlaceService {
     void addPlace(SavePlaceRequest request) throws IOException;
 
     void deleteById(String placeId);
+
+    List<Place> getPlaces();
 }
